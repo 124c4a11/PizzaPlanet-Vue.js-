@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="page">
     <pp-header />
     <router-view/>
     <pp-footer />
@@ -17,3 +17,13 @@ export default {
   }
 }
 </script>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main { flex-grow: 1; }
+</style>
