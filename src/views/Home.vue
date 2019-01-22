@@ -26,7 +26,7 @@ export default {
   min-height: 480px;
   padding: 15px;
   color: #fff;
-  text-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+  text-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   background-image: url(../assets/pizza.jpg);
   background-position: center;
   background-size: cover;
@@ -50,6 +50,7 @@ export default {
 .hero__content {
   position: relative;
   z-index: 2;
+  max-width: 1140px;
   text-align: center;
 }
 </style>

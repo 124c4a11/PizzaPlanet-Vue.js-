@@ -8,14 +8,27 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Menu</a>
+          <li v-for="(link, ndx) in links" :key="ndx" class="nav-item">
+            <a class="nav-link" :href="link.url">{{ link.title }}</a>
           </li>
         </ul>
       </div>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  name: 'header',
+
+  data () {
+    return {
+      links: [
+        { title: 'Home', url: '/' },
+        { title: 'Menu', url: '/menu' }
+      ]
+    }
+  }
+
+}
+</script>
