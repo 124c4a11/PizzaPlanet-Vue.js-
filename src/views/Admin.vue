@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-sm-12 col-md-6">
-          <!-- new pizza component -->
+          <pp-new-pizza></pp-new-pizza>
         </div>
         <div class="col-sm-12 col-md-6">
           <h3>Menu:</h3>
@@ -25,7 +25,7 @@
           </table>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-sm-12">
           <h3>Current orders:</h3>
           <table class="table table-hover">
@@ -57,7 +57,11 @@
 </template>
 
 <script>
+import ppNewPizza from '@/components/NewPizza.vue'
+
 export default {
-  name: 'admin'
+  name: 'Admin',
+
+  components: { ppNewPizza }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-sm-12 col-md-6">
           <table class="table table-hover">
             <thead class="thead-light">
@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: 'menuPage',
+  name: 'MenuPage',
 
   data () {
     return {
