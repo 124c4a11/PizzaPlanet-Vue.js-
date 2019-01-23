@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { dbMenuRef } from '../firebase'
+
 export default {
   name: 'NewPizza',
 
@@ -72,7 +74,7 @@ export default {
 
   methods: {
     addMenuItem () {
-      console.log(this.newPizza);
+      dbMenuRef.push(this.newPizza)
     }
   }
 }

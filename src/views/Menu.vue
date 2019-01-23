@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row pt-5">
-        <div class="col-sm-12 col-md-6">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 pt-5">
           <table class="table table-hover">
             <thead class="thead-light">
               <tr>
@@ -30,7 +30,7 @@
         </div>
 
         <!-- cart -->
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 py-5">
           <div v-if="cart.length">
             <table class="table table-hover">
               <thead class="thead-light">

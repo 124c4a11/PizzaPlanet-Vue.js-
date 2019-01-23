@@ -1,11 +1,11 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row pt-5">
-        <div class="col-sm-12 col-md-6">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 pt-5">
           <pp-new-pizza></pp-new-pizza>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 pt-5">
           <h3>Menu:</h3>
           <table class="table table-hover">
             <thead class="thead-light">
@@ -25,7 +25,7 @@
           </table>
         </div>
       </div>
-      <div class="row mt-5">
+      <div class="row py-5">
         <div class="col-sm-12">
           <h3>Current orders:</h3>
           <table class="table table-hover">
