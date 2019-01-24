@@ -59,10 +59,10 @@
               </tbody>
             </table>
             <p><b>Order total:</b></p>
-            <button class="btn btn-success btn-block" type="button">Place Order</button>
+            <button @click="addNewOrder" class="btn btn-success btn-block" type="button">Place Order</button>
           </div>
           <div v-else>
-            <p><b>Your cart is empty!</b></p>
+            <p><b>{{ cartText }}</b></p>  {{ this.$store.state.orders }}
           </div>
         </div>
       </div>
@@ -71,61 +71,25 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'MenuPage',
 
   data () {
     return {
       cart: [],
-
-      getMenuItems: {
-        1: {
-          'name': 'Margherita',
-          'description': 'A delicious tomato based pizza topped with mozzarella',
-          'options': [
-            {
-              'size': 9,
-              'price': 6.95
-            },
-            {
-              'size': 12,
-              'price': 10.95
-            }
-          ]
-        },
-        2: {
-          'name': 'Pepperoni',
-          'description': 'A delicious tomato based pizza topped with mozzarella and pepperoni',
-          'options': [
-            {
-              'size': 9,
-              'price': 7.95
-            },
-            {
-              'size': 12,
-              'price': 12.95
-            }
-          ]
-        },
-        3: {
-          'name': 'Ham and Pineapple',
-          'description': 'A delicious tomato based pizza topped with mozzarella, ham and pineapple',
-          'options': [
-            {
-              'size': 9,
-              'price': 7.95
-            },
-            {
-              'size': 12,
-              'price': 12.95
-            }
-          ]
-        }
-      }
+      cartText: 'Your cart is empty!'
     }
   },
 
+  computed: {
+    ...mapGetters('menu', [ 'getMenuItems' ])
+  },
+
   methods: {
+    ...mapMutations('orders', [ 'addOrder' ]),
+
     addToCart (item, option) {
       this.cart.push({
         name: item.name,
@@ -147,6 +111,12 @@ export default {
       item.quantity--
 
       if (item.quantity === 0) this.removeFromCart(item)
+    },
+
+    addNewOrder () {
+      this.addOrder(this.cart)
+      this.cart = []
+      this.cartText = 'Thank you, your order has been placed! :)'
     }
   }
 }

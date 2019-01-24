@@ -1,5 +1,6 @@
 <template>
   <form>
+    <p>Logged as: {{ currentUser }}</p>
     <div class="form-group">
       <label>Email</label>
       <input v-model="email" type="email" class="form-control" placeholder="Enter email">
@@ -15,6 +16,13 @@
 
 <script>
 import Firebase from 'firebase'
+import store from '@/store'
+import { mapGetters } from 'vuex'
+
+Firebase.auth().onAuthStateChanged((user) => {
+  if (user) store.dispatch('users/setUser', user)
+  else store.dispatch('users/setUser', null)
+})
 
 export default {
   name: 'Login',
@@ -24,6 +32,10 @@ export default {
       email: '',
       password: ''
     }
+  },
+
+  computed: {
+    ...mapGetters('users', [ 'currentUser' ])
   },
 
   methods: {

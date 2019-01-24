@@ -15,8 +15,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Margherita</td>
+              <tr v-for="(item, ndx) in getMenuItems" :key="ndx">
+                <td>{{ item.name }}</td>
                 <td>
                   <button class="btn btn-sm btn-outline-danger" type="button">&times;</button>
                 </td>
@@ -27,7 +27,7 @@
       </div>
       <div class="row py-5">
         <div class="col-sm-12">
-          <h3>Current orders:</h3>
+          <h3>Current orders: {{ numberOfOrders }}</h3>
           <table class="table table-hover">
             <thead class="thead-light">
               <tr>
@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import ppNewPizza from '@/components/NewPizza.vue'
 import ppLogin from '@/components/Login.vue'
 
@@ -71,6 +73,12 @@ export default {
   components: {
     ppNewPizza,
     ppLogin
+  },
+
+  computed: {
+    ...mapGetters('menu', [ 'getMenuItems' ]),
+
+    ...mapGetters('orders', [ 'numberOfOrders' ])
   }
 }
 </script>
