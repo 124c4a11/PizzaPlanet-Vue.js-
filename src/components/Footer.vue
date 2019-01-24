@@ -2,9 +2,15 @@
   <footer class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <ul class="navbar-nav ml-auto">
-        <li v-for="(link, ndx) in links" :key="ndx" class="nav-item">
-          <a class="nav-link" :href="link.url">{{ link.title }}</a>
-        </li>
+        <router-link
+          v-for="(link, ndx) in links"
+          :key="ndx"
+          :to="link.url"
+          tag="li"
+          exact
+          active-class="active"
+          class="nav-item"
+        ><a class="nav-link" >{{ link.title }}</a></router-link>
       </ul>
     </div>
   </footer>

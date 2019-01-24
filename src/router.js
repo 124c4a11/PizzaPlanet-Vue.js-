@@ -25,6 +25,10 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: ppAdmin
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

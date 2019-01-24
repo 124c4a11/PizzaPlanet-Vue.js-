@@ -4,7 +4,7 @@
       <div class="hero__content">
         <h1>Welcome to Pizza Planet!</h1>
         <h2>Feeling hungry?</h2>
-        <button class="btn btn-primary mt-5">Let`s order!</button>
+        <router-link to="/menu" class="btn btn-primary mt-5">Let`s order!</router-link>
       </div>
     </div>
   </div>
