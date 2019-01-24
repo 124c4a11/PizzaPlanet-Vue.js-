@@ -7,17 +7,35 @@
         <router-link to="/menu" class="btn btn-primary mt-5">Let`s order!</router-link>
       </div>
     </div>
+    <div class="container">
+      <div class="card-deck py-5">
+        <pp-ordering-guide></pp-ordering-guide>
+        <pp-delivery></pp-delivery>
+        <pp-history></pp-history>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import ppDelivery from '@/components/Delivery.vue'
+import ppHistory from '@/components/History.vue'
+import ppOrderingGuide from '@/components/OrderingGuide.vue'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+
+  components: {
+    ppDelivery,
+    ppHistory,
+    ppOrderingGuide
+  }
 }
 </script>
 
 <style lang="scss">
+
 .hero {
   position: relative;
   display: flex;
