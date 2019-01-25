@@ -19,7 +19,11 @@
               <tr v-for="item in getMenuItems" :key="item['.key']">
                 <td>{{ item.name }}</td>
                 <td>
-                  <button class="btn btn-sm btn-outline-danger" type="button">&times;</button>
+                  <button
+                    @click="removeMenuItem(item['.key'])"
+                    type="button"
+                    class="btn btn-sm btn-outline-danger"
+                  >&times;</button>
                 </td>
               </tr>
             </tbody>
@@ -42,7 +46,10 @@
             <tbody>
               <div class="py-2">
                 <b><i>Order Number: {{ ndx + 1 }}</i></b>
-                <button class="btn btn-sm btn-outline-danger ml-3" type="button">&times;</button>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger ml-3"
+                >&times;</button>
               </div>
               <tr v-for="(orderItems, ndx) in orders['.value']" :key="ndx">
                 <td>{{ orderItems.name }}</td>
@@ -65,6 +72,7 @@
 </template>
 
 <script>
+import { dbMenuRef } from '@/firebase'
 import { mapGetters } from 'vuex'
 
 import ppNewPizza from '@/components/NewPizza.vue'
@@ -76,6 +84,12 @@ export default {
   components: {
     ppNewPizza,
     ppLogin
+  },
+
+  methods: {
+    removeMenuItem (key) {
+      dbMenuRef.child(key).remove()
+    }
   },
 
   computed: {
