@@ -72,6 +72,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import { dbOrdersRef } from '@/firebase'
 
 export default {
   name: 'MenuPage',
@@ -114,7 +115,7 @@ export default {
     },
 
     addNewOrder () {
-      this.addOrder(this.cart)
+      dbOrdersRef.push(this.cart)
       this.cart = []
       this.cartText = 'Thank you, your order has been placed! :)'
     }

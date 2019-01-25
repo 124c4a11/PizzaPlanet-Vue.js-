@@ -5,6 +5,7 @@
         <div class="col-sm-12 col-md-6 pt-5">
           <pp-new-pizza></pp-new-pizza>
         </div>
+
         <div class="col-sm-12 col-md-6 pt-5">
           <h3>Menu:</h3>
           <table class="table table-hover">
@@ -15,7 +16,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, ndx) in getMenuItems" :key="ndx">
+              <tr v-for="item in getMenuItems" :key="item['.key']">
                 <td>{{ item.name }}</td>
                 <td>
                   <button class="btn btn-sm btn-outline-danger" type="button">&times;</button>
@@ -25,10 +26,11 @@
           </table>
         </div>
       </div>
+
       <div class="row py-5">
         <div class="col-sm-12">
           <h3>Current orders: {{ numberOfOrders }}</h3>
-          <table class="table table-hover">
+          <table v-for="(orders, ndx) in getOrders" :key="orders['.key']" class="table table-hover">
             <thead class="thead-light">
               <tr>
                 <th>Item</th>
@@ -39,19 +41,20 @@
             </thead>
             <tbody>
               <div class="py-2">
-                <b><i>Order Number: 1</i></b>
+                <b><i>Order Number: {{ ndx + 1 }}</i></b>
                 <button class="btn btn-sm btn-outline-danger ml-3" type="button">&times;</button>
               </div>
-              <tr>
-                <td>Margherita</td>
-                <td>9"</td>
-                <td>1</td>
-                <td>6.95</td>
+              <tr v-for="(orderItems, ndx) in orders['.value']" :key="ndx">
+                <td>{{ orderItems.name }}</td>
+                <td>{{ orderItems.size }}"</td>
+                <td>{{ orderItems.quantity }}</td>
+                <td>{{ orderItems.price }}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+
       <div class="row mb-5">
         <div class="col-sm-12 col-md-6">
           <pp-login></pp-login>
@@ -78,7 +81,7 @@ export default {
   computed: {
     ...mapGetters('menu', [ 'getMenuItems' ]),
 
-    ...mapGetters('orders', [ 'numberOfOrders' ])
+    ...mapGetters('orders', [ 'getOrders', 'numberOfOrders' ])
   }
 }
 </script>
