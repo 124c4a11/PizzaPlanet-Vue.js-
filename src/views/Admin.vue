@@ -47,6 +47,7 @@
               <div class="py-2">
                 <b><i>Order Number: {{ ndx + 1 }}</i></b>
                 <button
+                  @click="removeOrderItem(orders['.key'])"
                   type="button"
                   class="btn btn-sm btn-outline-danger ml-3"
                 >&times;</button>
@@ -72,7 +73,7 @@
 </template>
 
 <script>
-import { dbMenuRef } from '@/firebase'
+import { dbMenuRef, dbOrdersRef } from '@/firebase'
 import { mapGetters } from 'vuex'
 
 import ppNewPizza from '@/components/NewPizza.vue'
@@ -89,6 +90,10 @@ export default {
   methods: {
     removeMenuItem (key) {
       dbMenuRef.child(key).remove()
+    },
+
+    removeOrderItem (key) {
+      dbOrdersRef.child(key).remove()
     }
   },
 
