@@ -58,7 +58,7 @@
                 </tr>
               </tbody>
             </table>
-            <p><b>Order total:</b></p>
+            <p><b>Order total:</b> {{ totalCost }}</p>
             <button @click="addNewOrder" class="btn btn-success btn-block" type="button">Place Order</button>
           </div>
           <div v-else>
@@ -85,7 +85,19 @@ export default {
   },
 
   computed: {
-    ...mapGetters('menu', [ 'getMenuItems' ])
+    ...mapGetters('menu', [ 'getMenuItems' ]),
+
+    totalCost () {
+      let totalCost = 0
+
+      for (let items in this.cart) {
+        let item = this.cart[items]
+
+        totalCost += item.quantity * item.price
+      }
+
+      return totalCost
+    }
   },
 
   methods: {
