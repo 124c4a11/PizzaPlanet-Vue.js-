@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="container">
+    <div v-if="currentUser" class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6 pt-5">
           <pp-new-pizza></pp-new-pizza>
@@ -62,8 +62,10 @@
           </table>
         </div>
       </div>
+    </div>
 
-      <div class="row mb-5">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
         <div class="col-sm-12 col-md-6">
           <pp-login></pp-login>
         </div>
@@ -100,7 +102,9 @@ export default {
   computed: {
     ...mapGetters('menu', [ 'getMenuItems' ]),
 
-    ...mapGetters('orders', [ 'getOrders', 'numberOfOrders' ])
+    ...mapGetters('orders', [ 'getOrders', 'numberOfOrders' ]),
+
+    ...mapGetters('users', [ 'currentUser' ])
   }
 }
 </script>
