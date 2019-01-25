@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { dbMenuRef } from '@/firebase'
+
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -14,6 +16,10 @@ export default {
   components: {
     ppHeader: Header,
     ppFooter: Footer
+  },
+
+  created () {
+    this.$store.dispatch('menu/setMenuRef', dbMenuRef)
   }
 }
 </script>
