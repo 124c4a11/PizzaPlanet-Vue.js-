@@ -11,7 +11,7 @@
                 <th>Add to cart</th>
               </tr>
             </thead>
-            <tbody v-for="(item, ndx) in getMenuItems" :key="ndx">
+            <tbody v-for="item in getMenuItems" :key="item['.key']">
               <tr>
                 <td><strong>{{ item.name }}</strong></td>
               </tr>
@@ -62,7 +62,7 @@
             <button @click="addNewOrder" class="btn btn-success btn-block" type="button">Place Order</button>
           </div>
           <div v-else>
-            <p><b>{{ cartText }}</b></p>  {{ this.$store.state.orders }}
+            <p><b>{{ cartText }}</b></p>
           </div>
         </div>
       </div>
