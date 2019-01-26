@@ -31,6 +31,7 @@
         </div>
       </div>
 
+      <!-- orders -->
       <div class="row py-5">
         <div class="col-sm-12">
           <h3>Current orders: {{ numberOfOrders }}</h3>
@@ -56,7 +57,7 @@
                 <td>{{ orderItems.name }}</td>
                 <td>{{ orderItems.size }}"</td>
                 <td>{{ orderItems.quantity }}</td>
-                <td>{{ orderItems.price }}</td>
+                <td>{{ orderItems.price | currency }}</td>
               </tr>
             </tbody>
           </table>

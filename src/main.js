@@ -5,8 +5,11 @@ import store from './store'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Accounting from 'accounting-js'
 
 Vue.config.productionTip = false
+
+Vue.filter('currency', (val) => Accounting.formatMoney(val))
 
 new Vue({
   router,

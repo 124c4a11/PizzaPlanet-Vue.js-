@@ -17,7 +17,7 @@
               </tr>
               <tr v-for="(option, ndx) in item.options" :key="ndx">
                 <td>{{ option.size }}"</td>
-                <td>{{ option.price }}</td>
+                <td>{{ option.price | currency }}</td>
                 <td>
                   <button
                     @click="addToCart(item, option)"
@@ -54,11 +54,11 @@
                       type="button">+</button>
                   </td>
                   <td>{{ item.name }} {{ item.size }}"</td>
-                  <td>{{ item.price * item.quantity }}</td>
+                  <td>{{ item.price * item.quantity | currency }}</td>
                 </tr>
               </tbody>
             </table>
-            <p><b>Order total:</b> {{ totalCost }}</p>
+            <p><b>Order total:</b> {{ totalCost | currency }}</p>
             <button @click="addNewOrder" class="btn btn-success btn-block" type="button">Place Order</button>
           </div>
           <div v-else>
