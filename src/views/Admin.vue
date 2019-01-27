@@ -1,5 +1,15 @@
 <template>
   <div class="main">
+    <!-- login -->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-sm-12">
+          <pp-login></pp-login>
+        </div>
+      </div>
+    </div>
+
+    <!-- products -->
     <div v-if="currentUser" class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6 pt-5">
@@ -61,14 +71,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row mb-5 justify-content-center">
-        <div class="col-sm-12 col-md-6">
-          <pp-login></pp-login>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
-  <form>
-    <p>Logged as: {{ currentUser }}</p>
+  <form v-if="!currentUser">
+    <p><b>Please login to continue!</b></p>
     <div class="form-group">
       <label>Email</label>
       <input v-model="email" type="email" class="form-control" placeholder="Enter email">
@@ -10,8 +10,11 @@
       <input v-model="password" type="password" class="form-control" placeholder="Enter password">
     </div>
     <button @click.prevent="signIn" type="submit" class="btn btn-primary">Sign in</button>
-    <button @click.prevent="signOut" type="submit" class="btn btn-danger ml-2">Sign out</button>
   </form>
+
+  <p v-else class="text-right"><b>Logged as:</b> {{ currentUser }}
+  <button @click.prevent="signOut" type="button" class="btn btn-danger ml-2">Sign out</button>
+  </p>
 </template>
 
 <script>

@@ -2,8 +2,8 @@
   <div class="main">
     <div class="hero">
       <div class="hero__content">
-        <h1>Welcome to Pizza Planet!</h1>
-        <h2>Feeling hungry?</h2>
+        <h1 class="hero__text">Welcome to Pizza Planet!</h1>
+        <h2 class="hero__text">Feeling hungry?</h2>
         <router-link to="/menu" class="btn btn-primary mt-5">Let`s order!</router-link>
       </div>
     </div>
@@ -43,8 +43,6 @@ export default {
   align-items: center;
   min-height: 480px;
   padding: 15px;
-  color: #fff;
-  text-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   background-image: url(../assets/pizza.jpg);
   background-position: center;
   background-size: cover;
@@ -70,5 +68,10 @@ export default {
   z-index: 2;
   max-width: 1140px;
   text-align: center;
+}
+
+.hero__text {
+  color: #fff;
+  text-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 }
 </style>
