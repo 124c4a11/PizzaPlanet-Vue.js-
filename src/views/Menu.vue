@@ -104,12 +104,20 @@ export default {
     ...mapMutations('orders', [ 'addOrder' ]),
 
     addToCart (item, option) {
-      this.cart.push({
-        name: item.name,
-        size: option.size,
-        price: option.price,
-        quantity: 1
+      const itemInCart = this.cart.find((cartItem) => {
+        return cartItem.name === item.name && cartItem.size === option.size
       })
+
+      if (itemInCart) {
+        itemInCart.quantity++
+      } else {
+        this.cart.push({
+          name: item.name,
+          size: option.size,
+          price: option.price,
+          quantity: 1
+        })
+      }
     },
 
     removeFromCart (item) {
